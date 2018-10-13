@@ -25,7 +25,7 @@ public class Agent2 extends RecurrentNeuralNetwork {
     public double getScore(int food_x, int food_y) {
         //Use with >
         //return (double)Math.sqrt(Math.pow(x - food_x, 2) + Math.pow(y - food_y, 2))/moves;
-//        return (double)Math.sqrt(Math.pow(x - food_x, 2) + Math.pow(y - food_y, 2))/(Main.TURNS+1-(double)moves*0.2);
+        //return (double)Math.sqrt(Math.pow(x - food_x, 2) + Math.pow(y - food_y, 2))/(Main.TURNS+1-(double)moves*0.2);
         //return (double)(Math.pow(x - food_x, 2) + Math.pow(y - food_y, 2))*Math.pow(1.01, moves);
         
         //Use with <
@@ -75,7 +75,6 @@ public class Agent2 extends RecurrentNeuralNetwork {
                 lx = -1;
                 moves++; 
                 break;
-            //4 do nothing                    //4 do nothing
         }
     }
 
@@ -115,7 +114,6 @@ public class Agent2 extends RecurrentNeuralNetwork {
        for (int i = 0; i < shape.length; i++) {
            
            for (int j = 0; j < shape[i]; j++) {
-//               StdDraw.filledCircle(x + scale/shape.length*i, y + scale/shape[i]*(j-shape[i]/2) + scale/2, scale/50);
                StdDraw.setPenColor(Color.BLACK);
                StdDraw.filledCircle(x + (scale/shape.length)*(i), y + scale/2 + (scale/(double)shape[i])*(j-shape[i]/2+0.5), scale/100);
                if (i != shape.length-1) {
