@@ -1,6 +1,3 @@
-
-package machinelearningtests;
-
 /******************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw

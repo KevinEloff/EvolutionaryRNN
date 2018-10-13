@@ -1,5 +1,3 @@
-package machinelearningtests;
-
 /******************************************************************************
  *  Compilation:  javac Picture.java
  *  Execution:    java Picture imagename
