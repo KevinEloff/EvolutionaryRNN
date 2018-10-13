@@ -11,9 +11,11 @@ These 6 (or 8) inputs are then used as an input to a Recurrent Neural Network. T
 
 The fitness function score is calculated by:
 - SCORE = (MAX_TURNS - DISTANCE) * 0.95^MOVES_TAKEN
+
 Where:
 - DISTANCE = Manhattan distance between the agent's position and destination at the end of an episode
 - MAX_TURNS = Maximum amount of turns per episode
 - MOVES_TAKEN = Moves taken to get to the goal (Used to promote more direct solutions)
 
-Picture.java and StdDraw.java are used purely as a visual interface and input. Source: https://introcs.cs.princeton.edu/java/stdlib/
+Picture.java and StdDraw.java are used purely as a visual interface and input. 
+Source: https://introcs.cs.princeton.edu/java/stdlib/
