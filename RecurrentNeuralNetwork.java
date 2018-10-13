@@ -16,6 +16,7 @@ public class RecurrentNeuralNetwork {
     protected final float[] weights;
     protected final float[] bias;
     
+    //Used for duplicate() method
     public RecurrentNeuralNetwork(int[] shape, float[] neurons, float[] weights, float[] bias) {
         this.shape = shape;
         this.neurons = new float[neurons.length];
@@ -31,6 +32,10 @@ public class RecurrentNeuralNetwork {
         i = 0;
         for (float val: weights) this.weights[i++] = val;
     }
+    /**
+     * Create a new neural network from a given shape.
+     * @param shape Shape of neural network per layer
+     */
     public RecurrentNeuralNetwork(int[] shape) {
         this.shape = shape;
         //Initialise neuron matrix and neuron bias matrix
@@ -52,12 +57,18 @@ public class RecurrentNeuralNetwork {
             bias[i] = (float)(Math.random()*2 - 1);
     }
     
+    /**
+     * Reset recurrent input
+     */
     public void reset() {
         //Reset of recurrent neurons
         for (int i = 0; i < shape[shape.length-1]; i++)
             neurons[i] = 0;
     }
     
+    /**
+     * Do weight calculations on the neural network
+     */
     public void engage() {
         int pos = shape[shape.length-1];
         for (int i = 0; i < shape.length-1; i++) pos+= shape[i];
@@ -86,12 +97,19 @@ public class RecurrentNeuralNetwork {
         }
     }
     
+    /**
+     * Set input state for processing
+     * @param inputs Array of inputs of range (-1, 1)
+     */
     public void input(float[] inputs) {
         if (inputs.length != shape[0]) return;
         int j = shape[shape.length-1];
         for (float i: inputs) neurons[j++] = i;
     }
     
+    /**
+     * Get specific weight at layer/index
+     */
     public float getWeight(int layer, int index) {
         int pos = shape[shape.length-1];
         for (int i = 0; i<layer; i++) pos += shape[i];
@@ -108,10 +126,18 @@ public class RecurrentNeuralNetwork {
         return out;
     }
     
+    /**
+     * Get the output layer of the neural network
+     * @return Array of output values
+     */
     public float[] getOutputLayer() {
         return getLayer(shape.length-1);
     }
     
+    /**
+     * Get the index of highest value output
+     * @return index of best output
+     */
     public int getOutputIndex() {
         float[] output = getLayer(shape.length-1);
         int i = -1;
@@ -120,6 +146,10 @@ public class RecurrentNeuralNetwork {
         return i;
     }
     
+    /**
+     * Get output using softmax probability
+     * @return randomised output
+     */
     public int getOutput() {
         double sum = 0, r = Math.random();
         float[] output = getLayer(shape.length-1);
@@ -134,6 +164,10 @@ public class RecurrentNeuralNetwork {
         return i;
     }
     
+    /**
+     * Save weight matrix and bias to file
+     * @param filename Path of file to be saved
+     */
     public void save(String filename) {
         try {
             FileWriter fw = new FileWriter(new File(filename));
@@ -148,6 +182,10 @@ public class RecurrentNeuralNetwork {
         }
     }
     
+    /**
+     * Load weight matrix and bias to network
+     * @param filename Path of file to be loaded
+     */
     public void load(String filename) {
         try {
             Scanner fs = new Scanner(new File(filename));
@@ -168,6 +206,9 @@ public class RecurrentNeuralNetwork {
         }
     }
     
+    /**
+     * Mutate weight matrix and bias
+     */
     public void mutate(float rate) {
         for (int i = 0; i < weights.length; i++) {
             double r = Math.random();
@@ -195,10 +236,17 @@ public class RecurrentNeuralNetwork {
         //for (float i: bias) if (i != 0) System.out.println(i);
     }
     
+    /**
+     * Activation function
+     */
     public static float sigmoid(double x) {
         return (float)(1/( 1 + Math.pow(Math.E,(-1*x))));
     }
     
+    /**
+     * Create duplicated instance of neural network
+     * @return Duplicate RecurrentNeuralNetwork
+     */
     public RecurrentNeuralNetwork duplicate() {
         return new RecurrentNeuralNetwork(shape, neurons, weights, bias);
     }
