@@ -1,0 +1,24 @@
+{
+    "result": [
+        {
+            "update_id": 461431192,
+            "message": {
+                "chat": {
+                    "type": "private",
+                    "id": 493447916,
+                    "first_name": "Kevin"
+                },
+                "date": 1539500452,
+                "from": {
+                    "language_code": "en-gb",
+                    "id": 493447916,
+                    "first_name": "Kevin",
+                    "is_bot": false
+                },
+                "text": "Woof",
+                "message_id": 5
+            }
+        }
+    ],
+    "ok": true
+}

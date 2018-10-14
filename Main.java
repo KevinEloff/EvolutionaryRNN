@@ -34,13 +34,13 @@ public class Main {
         StdDraw.setYscale(0, 1);
         StdDraw.setPenRadius(0.003);
         
-        loadMap(MAPNAME);
+        loadMap("maps/" + MAPNAME);
         Agent2[] agents = new Agent2[SAMPLES];
         for (int i = 0; i < SAMPLES; i++)
             agents[i] = new Agent2(nShape);
         
         if (!INPUT.isEmpty()) for (int i = 0; i < agents.length/4; i++)
-            agents[i] = new Agent2(nShape, INPUT);
+            agents[i] = new Agent2(nShape, "weights/" + INPUT);
         
         for (int generation = 0; generation < GENERATIONS && TRAIN; generation++) {
             
