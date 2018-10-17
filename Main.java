@@ -25,13 +25,11 @@ public class Main {
         NeuralNetwork t = new NeuralNetwork(nShape);
         System.out.println("Network shape:");
         System.out.println(t.toString());
-        System.out.println("CONTROLS\n
-                    Training mode:\n
-                    \tP - Display current best generation\n
-                    \tX - End training early and go to viewing mode
-                    \tN - Display Neural Network evolving as it trains\n\n
-                    Viewing mode:\n
-                    \tSPACE - Save learnt weights to text file 'out.txt'\n\n");
+        System.out.println("CONTROLS\n"
+                    + "\tP - Display current best generation\n"
+                    + "\tX - End training early and go to viewing mode\n"
+                    + "\tN - Display Neural Network evolving as it trains\n"
+                    + "\tSPACE - Save learnt weights to text file 'out.txt'\n\n");
         
         //StdDraw.setCanvasSize(800, 800); //Optional increase canvas size
         StdDraw.enableDoubleBuffering();
