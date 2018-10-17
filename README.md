@@ -10,12 +10,12 @@ These senses include:
 - 4 values set to 1 or 0 whether there is an adjacent block or not
 - 2 inputs set to the last move taken in both x and y (optional)
 
-These 6 (or 8) inputs are then used as an input to a Recurrent Neural Network. This network has 4 distinct outputs actions being the cardinal directions the block should move per turn. This model is then trained using a genetic algorithm to find the best possible solution.
+These 6 (or 8) inputs are then used as an input to a **Recurrent Neural Network**. This network has 4 distinct outputs actions being the cardinal directions the block should move per turn. This model is then trained using a **genetic algorithm** to find the best possible solution.
 
 Fitness function
 ---------------
 The fitness function score is calculated by:
-- SCORE = (MAX_TURNS - DISTANCE) * 0.95^MOVES_TAKEN
+`SCORE = (MAX_TURNS - DISTANCE) * 0.95^MOVES_TAKEN`
 
 Where:
 - DISTANCE = Manhattan distance between the agent's position and destination at the end of an episode
@@ -46,7 +46,7 @@ float MUTATION    //Rate of mutation of the agents
 int MAP_SIZE      //Size of map
 String INPUT      //Optional input for weight initialization, leave as "" for random initial values
 String MAPNAME    //Name of .png map to be loaded
-TRAIN = true      //Train new generations or just display result
+boolean TRAIN     //Train new generations or just display result
 ```
 
 
